@@ -10,6 +10,4 @@ _Desarrollo proyecto 0 clase Desarrollo de soluciones Cloud_
 
 ## Creado por
 
-_Menciona a todos aquellos que ayudaron a levantar el proyecto desde sus inicios_
-
 * **Laura Chacon**
