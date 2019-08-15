@@ -1,0 +1,24 @@
+drop database ABC;
+CREATE DATABASE IF NOT EXISTS ABC;
+USE ABC;
+CREATE TABLE IF NOT EXISTS usuarios
+(
+  id INT NOT NULL AUTO_INCREMENT,
+  email VARCHAR(200) NOT NULL,
+  password VARCHAR(100) NOT NULL,
+  PRIMARY KEY(id)
+);
+CREATE TABLE IF NOT EXISTS eventos
+(
+  id INT AUTO_INCREMENT,
+  user_id INT NOT NULL,
+  nombre VARCHAR(200) NOT NULL,
+  categoria VARCHAR(15) NOT NULL,
+  lugar VARCHAR(200) NOT NULL,
+  direccion VARCHAR(200) NOT NULL,
+  fecha_inicio DATETIME,
+  fecha_fin DATETIME,
+  tipo_evento VARCHAR(10),
+  PRIMARY KEY(id),
+  CONSTRAINT fk_user FOREIGN KEY(user_id) REFERENCES usuarios(id)
+);

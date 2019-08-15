@@ -1,0 +1,16 @@
+<%- include('../header'); -%>
+  <div class="container text-center my-auto">
+    <h1 class="display-2">Inicia Sesion</h1>
+    <form action="/auth/login" method="POST">
+      <div class="form-group">
+        <label for="email">Direccion Email</label>
+        <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="Ingresa email">
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+      </div>
+      <button type="submit" class="btn btn-primary">Inicia Sesion</button>
+    </form>
+  </div>
+<%- include('../footer'); -%>

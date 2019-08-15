@@ -1,0 +1,46 @@
+<%- include('../header'); -%>
+  <div class="container text-center my-auto">
+     <h1 class="display-3">Tus Eventos</h1>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Nombre</th>
+          <th scope="col">Categoria</th>
+          <th scope="col">Lugar</th>
+          <th scope="col">Direccion</th>
+          <th scope="col">Fecha de Inicio (yyyy-mm-dd)</th>
+          <th scope="col">Fecha de Fin (yyyy-mm-dd)</th>
+          <th scope="col">Tipo de evento</th>
+          <th scope="col">Eliminar</th>
+          <th scope="col">Editar</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <%eventos.forEach((evento)=>{ %>
+        <tr>
+          <td><%= evento.nombre %></td>
+          <td><%= evento.categoria %></td>
+          <td><%= evento.lugar %></td>
+          <td><%= evento.direccion %></td>
+          <td><%= evento.fecha_inicio.getFullYear()%>-<%if(evento.fecha_inicio.getMonth()+1<10){%>0<%}%><%=evento.fecha_inicio.getMonth()+1%>-<%if(evento.fecha_inicio.getDate()<10){%>0<%}%><%=evento.fecha_inicio.getDate()%></td>
+          <td><%= evento.fecha_fin.getFullYear()%>-<%if(evento.fecha_fin.getMonth()+1<10){%>0<%}%><%=evento.fecha_fin.getMonth()+1%>-<%if(evento.fecha_fin.getDate()<10){%>0<%}%><%=evento.fecha_fin.getDate()%></td>
+          <td><%= evento.tipo_evento %></td>
+          <td>
+            <a href="/eventos/eliminar/<%=evento.id %>" class="btn btn-danger">Eliminar</a>
+          </td>
+          <td>
+            <a href="/eventos/editar/<%=evento.id %>" class="btn btn-warning">Editar</a>
+          </td>
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
+    <div class="form-group">
+      <a href="/eventos/agregar/" class="btn btn-primary">Agrega un Evento</a>
+    </div>
+    <div class="form-group">
+      <a href="/auth/logout/" class="btn btn-danger">Cerrar Sesion</a>
+    </div>
+  </div>
+<%- include('../footer'); -%>

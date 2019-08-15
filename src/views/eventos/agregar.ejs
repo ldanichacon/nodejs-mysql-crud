@@ -1,0 +1,48 @@
+<%- include('../header'); -%>
+  <div class="container text-center my-auto">
+    <h1 class="display-3">Agrega un Evento</h1>
+    <form action="/eventos/agregar" method="POST">
+      <div class="form-group">
+        <label for="nombre">Nombre: </label>
+        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingresa un nombre" required>
+      </div>
+      <div class="form-group">
+        <label for="categoria">Categoria: </label>
+        <select id="categoria" name="categoria" class="form-control" placeholder="Selecciona una categoria" required>
+          <option></option>
+          <option value="Conferencia">Conferencia</option>
+          <option value="Seminario">Seminario</option>
+          <option value="Congreso">Congreso</option>
+          <option value="Curso">Curso</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="lugar">Lugar: </label>
+        <input type="text" class="form-control" id="lugar" name="lugar" placeholder="Ingresa un lugar" required>
+      </div>
+      <div class="form-group">
+        <label for="direccion">Direccion: </label>
+        <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Ingresa una direccion" required>
+      </div>
+      <div class="form-group">
+        <label for="fechaInicio">Fecha de Inicio: </label>
+        <input type="date" class="form-control" id="fechaInicio" name="fechaInicio" required>
+      </div>
+      <div class="form-group">
+        <label for="fechaFin">Fecha de Fin: </label>
+        <input type="date" class="form-control" id="fechaFin" name="fechaFin" required>
+      </div>
+      <div class="form-group">
+        <label for="tipo">Tipo de Evento: </label>
+        <select id="tipo" name="tipo" class="form-control" required>
+          <option></option>
+          <option value="Presencial">Presencial</option>
+          <option value="Virtual">Virtual</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Agrega un Evento</button>
+      </div>
+    </form>
+  </div>
+<%- include('../footer'); -%>

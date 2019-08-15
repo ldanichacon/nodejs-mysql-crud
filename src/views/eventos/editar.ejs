@@ -1,0 +1,47 @@
+<%- include('../header'); -%>
+  <div class="container text-center my-auto">
+    <h1 class="display-3">Edita un Evento</h1>
+    <form action="/eventos/editar/<%= evento.id %>" method="POST">
+      <div class="form-group">
+        <label for="nombre">Nombre: </label>
+        <input type="text" class="form-control" id="nombre" name="nombre" value="<%= evento.nombre %>" required>
+      </div>
+      <div class="form-group">
+        <label for="categoria">Categoria: </label>
+        <select id="categoria" name="categoria" class="form-control"required>
+          <option value="Conferencia" <%if (evento.categoria==="Conferencia"){%>selected<%}%>>Conferencia</option>
+          <option value="Seminario" <%if (evento.categoria==="Seminario"){%>selected<%}%>>Seminario</option>
+          <option value="Congreso" <%if (evento.categoria==="Congreso"){%>selected<%}%>>Congreso</option>
+          <option value="Curso" <%if (evento.categoria==="Curso"){%>selected<%}%>>Curso</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="lugar">Lugar: </label>
+        <input type="text" class="form-control" id="lugar" name="lugar" value="<%= evento.lugar %>" placeholder="<%= evento.lugar %>">
+      </div>
+      <div class="form-group">
+        <label for="direccion">Direccion: </label>
+        <input type="text" class="form-control" id="direccion" name="direccion" placeholder="<%= evento.direccion %>"  value="<%= evento.direccion %>" required>
+      </div>
+      <div class="form-group">
+        <label for="fechaInicio">Fecha de Inicio: </label>
+        <input type="date" class="form-control" id="fechaInicio" name="fechaInicio" value=<%=evento.fecha_inicio.getFullYear()%>-<%if(evento.fecha_inicio.getMonth()+1<10){%>0<%}%><%=evento.fecha_inicio.getMonth()+1%>-<%if(evento.fecha_inicio.getDate()<10){%>0<%}%><%=evento.fecha_inicio.getDate()%> required>
+      </div>
+      <div class="form-group">
+        <label for="fechaFin">Fecha de Fin: </label>
+        <input type="date" class="form-control" id="fechaFin" name="fechaFin" value=<%=evento.fecha_fin.getFullYear()%>-<%if(evento.fecha_fin.getMonth()+1<10){%>0<%}%><%=evento.fecha_fin.getMonth()+1%>-<%if(evento.fecha_fin.getDate()<10){%>0<%}%><%=evento.fecha_fin.getDate()%> required>
+      </div>
+      <div class="form-group">
+        <label for="tipo">Tipo de Evento: </label>
+        <select id="tipo" name="tipo" class="form-control" required>
+          <option></option>
+          <option value="Presencial"<%if (evento.tipo_evento==="Presencial"){%>selected<%}%>>Presencial</option>
+          <option value="Virtual"<%if (evento.tipo_evento==="Virtual"){%>selected<%}%>>Virtual</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Editar</button>
+      </div>
+    </form>
+  </div>
+<%- include('../footer'); -%>
